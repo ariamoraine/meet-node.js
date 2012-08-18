@@ -1,3 +1,4 @@
+
 function LiveStatsClient () {
     if (! (this instanceof arguments.callee)) {
         return new arguments.callee(arguments);
@@ -77,8 +78,7 @@ this.geoCoordsToMapCoords = function (latitude, longitude) {
 }
 
 this.drawMarker = function (message) {
-  var self = this,
-    latitude = message.latitude,
+  var latitude = message.latitude,
     longitude = message.longitude,
     text = message.title,
     city = message.city,
@@ -135,7 +135,7 @@ this.drawMarker = function (message) {
   });
 }
   
-    this.init();
+  this.init();
 };
 
 var LiveStatsClient;
@@ -144,5 +144,5 @@ $(function() {
 
     $(window).resize(function() {
     LiveStatsClient.viewDidResize();
-    })
+    });
 });
