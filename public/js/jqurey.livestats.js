@@ -5,7 +5,7 @@ function LiveStatsClient () {
 
     var self = this;
 
-    this.init = funtion() {
+    this.init = function() {
         self.drawMap();
         self.viewDidResize();
         self.setupBayeuxHandelers();
@@ -15,7 +15,7 @@ function LiveStatsClient () {
         var self = this;
 
         $.getJSON("/config.json", function (config) {
-            self.client = new Faye.Client("http://" + window.location.hostname + config.port + '/faye', {
+            self.client = new Faye.Client("http://" + window.location.hostname + ':' + config.port + '/faye', {
                 timeout: 120
             });
 
@@ -139,10 +139,10 @@ this.drawMarker = function (message) {
 };
 
 var LiveStatsClient;
-jQurey(function() {
+$(function() {
     LiveStatsClient = new LiveStatsClient();
 
     $(window).resize(function() {
-    liveStatsClient.viewDidResize();
+    LiveStatsClient.viewDidResize();
     })
 });
