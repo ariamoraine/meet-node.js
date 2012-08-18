@@ -20,7 +20,7 @@ function LiveStatsClient () {
                 timeout: 120
             });
 
-            self.client.subcribe('/stat', function (message) {
+            self.client.subscribe('/stat', function (message) {
                 self.drawMarker(message);
             });
         });
